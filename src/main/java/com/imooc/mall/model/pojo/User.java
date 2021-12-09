@@ -2,19 +2,43 @@ package com.imooc.mall.model.pojo;
 
 import java.util.Date;
 
+/**
+    * 用户表 
+    */
 public class User {
+    /**
+    * 用户id
+    */
     private Integer id;
 
+    /**
+    * 用户名
+    */
     private String username;
 
+    /**
+    * 用户密码，MD5加密
+    */
     private String password;
 
+    /**
+    * 个性签名
+    */
     private String personalizedSignature;
 
+    /**
+    * 角色，1-普通用户，2-管理员
+    */
     private Integer role;
 
+    /**
+    * 创建时间
+    */
     private Date createTime;
 
+    /**
+    * 更新时间
+    */
     private Date updateTime;
 
     public Integer getId() {
@@ -30,7 +54,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -38,7 +62,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getPersonalizedSignature() {
@@ -46,7 +70,7 @@ public class User {
     }
 
     public void setPersonalizedSignature(String personalizedSignature) {
-        this.personalizedSignature = personalizedSignature == null ? null : personalizedSignature.trim();
+        this.personalizedSignature = personalizedSignature;
     }
 
     public Integer getRole() {

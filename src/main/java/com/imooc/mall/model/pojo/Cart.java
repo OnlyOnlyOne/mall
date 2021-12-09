@@ -2,19 +2,43 @@ package com.imooc.mall.model.pojo;
 
 import java.util.Date;
 
+/**
+    * 购物车
+    */
 public class Cart {
+    /**
+    * 购物车id
+    */
     private Integer id;
 
+    /**
+    * 商品id
+    */
     private Integer productId;
 
+    /**
+    * 用户id
+    */
     private Integer userId;
 
+    /**
+    * 商品数量
+    */
     private Integer quantity;
 
+    /**
+    * 是否已勾选：0代表未勾选，1代表已勾选
+    */
     private Integer selected;
 
+    /**
+    * 创建时间
+    */
     private Date createTime;
 
+    /**
+    * 更新时间
+    */
     private Date updateTime;
 
     public Integer getId() {

@@ -21,4 +21,9 @@ public class UserController {
     public User personalPage() {
         return userService.getUser();
     }
+
+
+    public void register() {
+
+    }
 }

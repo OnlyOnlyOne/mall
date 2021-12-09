@@ -2,25 +2,58 @@ package com.imooc.mall.model.pojo;
 
 import java.util.Date;
 
+/**
+    * 商品表
+    */
 public class Product {
+    /**
+    * 商品主键id
+    */
     private Integer id;
 
+    /**
+    * 商品名称
+    */
     private String name;
 
+    /**
+    * 产品图片,相对路径地址
+    */
     private String image;
 
+    /**
+    * 商品详情
+    */
     private String detail;
 
+    /**
+    * 分类id
+    */
     private Integer categoryId;
 
+    /**
+    * 价格,单位-分
+    */
     private Integer price;
 
+    /**
+    * 库存数量
+    */
     private Integer stock;
 
+    /**
+    * 商品上架状态：0-下架，1-上架
+    */
     private Integer status;
 
+    /**
+    * 创建时间
+    */
     private Date createTime;
 
+    /**
+    * 更新时间
+    */
     private Date updateTime;
 
     public Integer getId() {
@@ -36,7 +69,7 @@ public class Product {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getImage() {
@@ -44,7 +77,7 @@ public class Product {
     }
 
     public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
+        this.image = image;
     }
 
     public String getDetail() {
@@ -52,7 +85,7 @@ public class Product {
     }
 
     public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
+        this.detail = detail;
     }
 
     public Integer getCategoryId() {

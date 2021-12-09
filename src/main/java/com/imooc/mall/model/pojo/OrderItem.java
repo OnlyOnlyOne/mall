@@ -2,25 +2,58 @@ package com.imooc.mall.model.pojo;
 
 import java.util.Date;
 
+/**
+    * 订单的商品表 
+    */
 public class OrderItem {
+    /**
+    * 主键id
+    */
     private Integer id;
 
+    /**
+    * 归属订单id
+    */
     private String orderNo;
 
+    /**
+    * 商品id
+    */
     private Integer productId;
 
+    /**
+    * 商品名称
+    */
     private String productName;
 
+    /**
+    * 商品图片
+    */
     private String productImg;
 
+    /**
+    * 单价（下单时的快照）
+    */
     private Integer unitPrice;
 
+    /**
+    * 商品数量
+    */
     private Integer quantity;
 
+    /**
+    * 商品总价
+    */
     private Integer totalPrice;
 
+    /**
+    * 创建时间
+    */
     private Date createTime;
 
+    /**
+    * 更新时间
+    */
     private Date updateTime;
 
     public Integer getId() {
@@ -36,7 +69,7 @@ public class OrderItem {
     }
 
     public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo == null ? null : orderNo.trim();
+        this.orderNo = orderNo;
     }
 
     public Integer getProductId() {
@@ -52,7 +85,7 @@ public class OrderItem {
     }
 
     public void setProductName(String productName) {
-        this.productName = productName == null ? null : productName.trim();
+        this.productName = productName;
     }
 
     public String getProductImg() {
@@ -60,7 +93,7 @@ public class OrderItem {
     }
 
     public void setProductImg(String productImg) {
-        this.productImg = productImg == null ? null : productImg.trim();
+        this.productImg = productImg;
     }
 
     public Integer getUnitPrice() {

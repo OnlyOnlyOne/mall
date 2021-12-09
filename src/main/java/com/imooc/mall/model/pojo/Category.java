@@ -2,19 +2,43 @@ package com.imooc.mall.model.pojo;
 
 import java.util.Date;
 
+/**
+    * 商品分类 
+    */
 public class Category {
+    /**
+    * 主键
+    */
     private Integer id;
 
+    /**
+    * 分类目录名称
+    */
     private String name;
 
+    /**
+    * 分类目录级别，例如1代表一级，2代表二级，3代表三级
+    */
     private Integer type;
 
+    /**
+    * 父id，也就是上一级目录的id，如果是一级目录，那么父id为0
+    */
     private Integer parentId;
 
+    /**
+    * 目录展示时的排序
+    */
     private Integer orderNum;
 
+    /**
+    * 创建时间
+    */
     private Date createTime;
 
+    /**
+    * 更新时间
+    */
     private Date updateTime;
 
     public Integer getId() {
@@ -30,7 +54,7 @@ public class Category {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Integer getType() {
