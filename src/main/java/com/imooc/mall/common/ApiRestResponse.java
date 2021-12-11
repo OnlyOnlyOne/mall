@@ -1,5 +1,7 @@
 package com.imooc.mall.common;
 
+import com.imooc.mall.exception.ImoocMallExceptionEnum;
+
 /**
  * The type Api rest response.
  * 通用返回对象
@@ -29,5 +31,58 @@ public class ApiRestResponse<T> {
 
     public ApiRestResponse() {
         this(OK_CODE, OK_MSG);
+    }
+
+    public static <T> ApiRestResponse<T> success() {
+        return new ApiRestResponse<>();
+    }
+
+    /*放数据的构造函数*/
+    public static <T> ApiRestResponse<T> success(T result) {
+        ApiRestResponse<T> response = new ApiRestResponse<>();
+        response.setData(result);
+        return response;
+    }
+
+    //失败的方法
+    public static <T> ApiRestResponse<T> error(Integer code, String msg) {
+        return new ApiRestResponse<>(code, msg);
+    }
+
+    public static <T> ApiRestResponse<T> error(ImoocMallExceptionEnum ex) {
+        return new ApiRestResponse<>(ex.getCode(),ex.getMsg());
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiRestResponse{" +
+                "status=" + status +
+                ", msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
