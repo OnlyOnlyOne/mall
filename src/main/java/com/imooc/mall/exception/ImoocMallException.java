@@ -4,7 +4,7 @@ package com.imooc.mall.exception;
  * The type Imooc mall exception.
  * 描述： 统一异常
  */
-public class ImoocMallException extends Exception{
+public class ImoocMallException extends RuntimeException{
     private final String message;
     private final Integer code;
 
