@@ -11,8 +11,10 @@ import com.imooc.mall.service.CategoryService;
 import com.imooc.mall.vo.CategoryVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import springfox.documentation.annotations.Cacheable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,10 @@ import java.util.List;
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     CategoryMapper categoryMapper;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     @Override
     public void add(AddcategoryReq addcategoryReq) {
@@ -79,13 +85,15 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    @Cacheable(value = "listCategoryForCustomer")
     public List<CategoryVO> listCategoryForCustomer() {
         ArrayList<CategoryVO> categoryVOList = new ArrayList<>();
         //考虑到怎么往这个列表里面添加数据
         recursivelyFindCategories(categoryVOList, 0);
+
         return categoryVOList;
     }
-
+    @Cacheable(value = "listCategory")
     private void recursivelyFindCategories(List<CategoryVO> categoryVOList,
     Integer parentId
     ) {
