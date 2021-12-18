@@ -28,5 +28,10 @@ public class Constant {
 //        Set<String> PRICE_ASC_DESC = Sets.newHashSet("price desc", "price asc");
 //
 //    }
+    public interface ProductListOrderBy{
+
+    Set<String> PRICE_ASC_DESC = Sets.newHashSet("price desc", "price asc");
+
+}
 
 }

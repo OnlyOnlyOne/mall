@@ -158,4 +158,42 @@
     from imooc_mall_product
     where name = #{name,jdbcType=VARCHAR}
   </select>
+
+<!--利用mysql动态拼装数组-->
+  <update id="batchUpdateSellStatus">
+    update imooc_mall_product
+    set status=#{sellStatus}
+    where id in
+    <foreach collection="ids" close=")" item="id" open="("
+             separator=",">
+      #{id}
+    </foreach>
+  </update>
+  <!--挑选列表-->
+  <select id="selectListForAdmin"  resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from imooc_mall_product
+    order by update_time desc
+  </select>
+
+  <select id="selectList" resultMap="BaseResultMap"
+          parameterType="com.imooc.mall.model.query.ProductListQuery">
+    select
+    <include refid="Base_Column_List"/>
+    from imooc_mall_product
+    <where>
+      <if test="query.keyword != null">
+<!--        模糊查找-->
+        and name like #{query.keyword}
+      </if>
+      <if test="query.categoryIds != null">
+        and category_id in
+        <foreach collection="query.categoryIds" close=")" item="item" open="(" separator=",">
+          #{item}
+        </foreach>
+      </if>
+      and status = 1
+    </where>
+    order by update_time desc
+  </select>
 </mapper>
