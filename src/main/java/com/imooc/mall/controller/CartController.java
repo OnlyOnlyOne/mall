@@ -29,6 +29,8 @@ public class CartController {
         //先判断是否有用户信息，所以就要用session获得
         //内部获取用户Id，防止横向越权
         List<CartVO> cartList = cartService.list(UserFilter.currentUser.getId());
+
+//
         return ApiRestResponse.success(cartList);
     }
 
