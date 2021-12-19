@@ -13,7 +13,7 @@ import com.imooc.mall.model.request.AddProductReq;
 import com.imooc.mall.model.request.ProductListReq;
 import com.imooc.mall.service.CategoryService;
 import com.imooc.mall.service.ProductService;
-import com.imooc.mall.vo.CategoryVO;
+import com.imooc.mall.model.vo.CategoryVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

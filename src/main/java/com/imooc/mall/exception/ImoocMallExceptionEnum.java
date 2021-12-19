@@ -22,6 +22,8 @@ public enum ImoocMallExceptionEnum {
     REQUEST_PARAM_ERROR(10013, "参数错误"),
     MKDIR_FAILED(10014, "文件夹创建失败"),
     UPLOAD_FAILED(10015, "图片上传失败"),
+    NOT_SALE(10016, "商品状态不可出售"),
+    NOT_ENOUGH(10017, "商品库存不足"),
 
 
     SYSTEM_ERROR(20000,"系统异常");
