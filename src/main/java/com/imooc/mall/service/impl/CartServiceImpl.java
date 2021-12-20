@@ -77,4 +77,67 @@ public class CartServiceImpl implements CartService {
             throw new ImoocMallException(ImoocMallExceptionEnum.NOT_ENOUGH);
         }
     }
+
+    //更新购物车
+    @Override
+    public List<CartVO> update(Integer userId, Integer productId, Integer count) {
+        validProduct(productId, count);
+
+        Cart cart = cartMapper.selectCartByUserIdAndProductId(userId, productId);
+        if (cart == null) {
+            //这个商品之前不在购物车里，无法更新
+            throw new ImoocMallException(ImoocMallExceptionEnum.UPDATE_FAILED);
+        } else {
+            //这个商品已经在购物车里了，则更新数量
+            Cart cartNew = new Cart();
+            cartNew.setQuantity(count);
+            cartNew.setId(cart.getId());
+            cartNew.setProductId(cart.getProductId());
+            cartNew.setUserId(cart.getUserId());
+            cartNew.setSelected(Constant.Cart.CHECKED);
+            cartMapper.updateByPrimaryKeySelective(cartNew);
+        }
+        return this.list(userId);
+    }
+
+    //删除购物车
+    @Override
+    public List<CartVO> delete(Integer userId, Integer productId) {
+
+
+        Cart cart = cartMapper.selectCartByUserIdAndProductId(userId, productId);
+        if (cart == null) {
+            //这个商品之前不在购物车里，无法删除
+            throw new ImoocMallException(ImoocMallExceptionEnum.DELETE_FAILED);
+        } else {
+            //这个商品已经在购物车里了，则可以删除
+            cartMapper.deleteByPrimaryKey(cart.getId());
+        }
+        return this.list(userId);
+    }
+
+    //全选和选择一个逻辑有很大的相似，所以要考虑复用
+    @Override
+    public List<CartVO> selectOrNot(Integer userId, Integer productId, Integer selected) {
+        //第一步，查出购物车
+        Cart cart = cartMapper.selectCartByUserIdAndProductId(userId, productId);
+        //第二步，进行空的判断
+        if (cart == null) {
+            //这个商品之前不在购物车里，无法选中
+            throw new ImoocMallException(ImoocMallExceptionEnum.UPDATE_FAILED);
+        } else {
+            //这个商品已经在购物车里了，则可以选择、不选中
+            cartMapper.selectOrNot(userId, productId, selected);
+        }
+        return this.list(userId);
+
+    }
+
+    @Override
+    public List<CartVO> selectAllOrNot(Integer userId, Integer selected) {
+        //改变选中状态
+        cartMapper.selectOrNot(userId,null, selected);
+        return this.list(userId);
+    }
+    
 }

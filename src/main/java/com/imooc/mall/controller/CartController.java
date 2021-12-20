@@ -43,5 +43,39 @@ public class CartController {
         return ApiRestResponse.success(cartVOList);
     }
 
+    @PostMapping("/update")
+    @ApiOperation("更新购物车")
+    public ApiRestResponse update(@RequestParam Integer productId, @RequestParam Integer count) {
+        List<CartVO> cartVOList = cartService
+                .update(UserFilter.currentUser.getId(), productId, count);
+        return ApiRestResponse.success(cartVOList);
+    }
+
+    @PostMapping("/delete")
+    @ApiOperation("删除购物车")
+    public ApiRestResponse delete(@RequestParam Integer productId) {
+        //不能传入userId,cartID,否则可以删除别人的购物车
+        List<CartVO> cartVOList = cartService
+                .delete(UserFilter.currentUser.getId(), productId);
+        return ApiRestResponse.success(cartVOList);
+    }
+
+    @PostMapping("/select")
+    @ApiOperation("选择/不选择购物车的某商品")
+    public ApiRestResponse select(@RequestParam Integer productId,@RequestParam Integer selected) {
+        //不能传入userId,cartID,否则可以删除别人的购物车
+        List<CartVO> cartVOList = cartService
+                .selectOrNot(UserFilter.currentUser.getId(), productId,selected);
+        return ApiRestResponse.success(cartVOList);
+    }
+
+    @PostMapping("/selectAll")
+    @ApiOperation("全选择/全不选择购物车的某商品")
+    public ApiRestResponse selectAll(@RequestParam Integer selected) {
+        //不能传入userId,cartID,否则可以删除别人的购物车
+        List<CartVO> cartVOList = cartService
+                .selectAllOrNot(UserFilter.currentUser.getId(), selected);
+        return ApiRestResponse.success(cartVOList);
+    }
 
 }

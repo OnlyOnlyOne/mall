@@ -7,6 +7,7 @@ import com.imooc.mall.exception.ImoocMallExceptionEnum;
 import com.imooc.mall.model.dao.CategoryMapper;
 import com.imooc.mall.model.pojo.Category;
 import com.imooc.mall.model.request.AddcategoryReq;
+import com.imooc.mall.model.vo.CartVO;
 import com.imooc.mall.service.CategoryService;
 import com.imooc.mall.model.vo.CategoryVO;
 import org.springframework.beans.BeanUtils;
@@ -109,5 +110,9 @@ public class CategoryServiceImpl implements CategoryService {
             }
         }
     }
+
+
+
+
 
 }
