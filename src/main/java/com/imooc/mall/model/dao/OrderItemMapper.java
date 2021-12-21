@@ -1,6 +1,9 @@
 package com.imooc.mall.model.dao;
 
+import com.imooc.mall.model.pojo.Order;
 import com.imooc.mall.model.pojo.OrderItem;
+
+import java.util.List;
 
 public interface OrderItemMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,7 @@ public interface OrderItemMapper {
     int updateByPrimaryKeySelective(OrderItem record);
 
     int updateByPrimaryKey(OrderItem record);
+
+    List<OrderItem> selectByOrderNo(String orderNo);
+
 }
