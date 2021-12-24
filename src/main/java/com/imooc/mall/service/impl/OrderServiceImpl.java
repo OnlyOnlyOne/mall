@@ -72,8 +72,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderItemMapper orderItemMapper;
 
-//    @Value("${file.upload.ip}")
-//    String ip;
+    @Value("${file.upload.ip}")
+    String ip;
 
     @Autowired
     UserService userService;
@@ -268,7 +268,7 @@ public class OrderServiceImpl implements OrderService {
                 .getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
-        String address = "127.0.0.1" + ":" + request.getLocalPort();
+        String address = ip + ":" + request.getLocalPort();
         String payUrl = "http://" + address + "/pay?orderNo=" + orderNo;
         try {
             QRCodeGenerator
