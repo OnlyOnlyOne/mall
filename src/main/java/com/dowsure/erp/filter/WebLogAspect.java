@@ -38,6 +38,8 @@ public class WebLogAspect {
                 .getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
+
+
         log.info("URL : " + request.getRequestURL().toString());
         log.info("HTTP_METHOD :" + request.getMethod());
         log.info("IP : " + request.getRemoteAddr());
