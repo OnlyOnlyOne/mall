@@ -20,6 +20,7 @@ public class AuthShopController {
     public ApiRestResponse shop(@RequestParam Long id){
         TAuthShop shop = authShopService.selectById(id);
         System.out.println("======");
+        System.out.println("test");
         return ApiRestResponse.success(shop);
     }
 }
