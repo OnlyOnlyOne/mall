@@ -4,5 +4,25 @@
       "name": "file.upload.dir",
       "type": "java.lang.String",
       "description": "Description for file.upload.dir."
-  }
-] }
+    },
+    {
+      "name": "spring.datasource.mydbA.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.mydbA.password."
+    },
+    {
+      "name": "spring.datasource.mydbA.jdbc-url",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.mydbA.jdbc-url."
+    },
+    {
+      "name": "spring.datasource.mydbA.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.mydbA.driver-class-name."
+    },
+    {
+      "name": "spring.datasource.mydbB.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.mydbB.driver-class-name."
+    }
+  ] }

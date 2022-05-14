@@ -1,0 +1,34 @@
+file:
+  upload:
+    dir: D:/Workspace/mall/src/main/resources/img/
+    ip: 127.0.0.1
+#mybatis-plus:
+#    # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+#  mapper-locations: classpath*:baseSource/*.xml
+mybatis-plus:
+  mapper-locations: classpath*:/mappers/**/*.xml
+server:
+  port: 8088
+spring:
+  datasource:
+    dynamic:
+      primary: dataSource #设置默认的数据源或者数据源组,默认值即为mysql1
+      strict: true #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        dataSource:
+          url: jdbc:mysql://rr-uf62f73r85y150vi6do.mysql.rds.aliyuncs.com:3306/dsb_sp_data_2022?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+          username: dberpuser
+          password: i6!D$DhxGv
+          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+        baseSource:
+          url: jdbc:mysql://rr-uf62f73r85y150vi6do.mysql.rds.aliyuncs.com:3306/dsb_sp_base?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&serverTimezone=Asia/Shanghai
+          username: dberpuser
+          password: i6!D$DhxGv
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  redis:
+    host: 127.0.0.1
+    password: ''
+    port: 6379
+

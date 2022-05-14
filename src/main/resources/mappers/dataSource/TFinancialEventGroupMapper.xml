@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dowsure.erp.model.dao.dataSource.TFinancialEventGroupMapper">
+  <resultMap id="BaseResultMap" type="com.dowsure.erp.model.pojo.TFinancialEventGroup">
+    <!--@mbg.generated-->
+    <!--@Table t_financial_event_group_0-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="financial_event_group_id" jdbcType="VARCHAR" property="financialEventGroupId" />
+    <result column="processing_status" jdbcType="VARCHAR" property="processingStatus" />
+    <result column="fund_transfer_status" jdbcType="VARCHAR" property="fundTransferStatus" />
+    <result column="original_amount" jdbcType="DECIMAL" property="originalAmount" />
+    <result column="original_unit" jdbcType="VARCHAR" property="originalUnit" />
+    <result column="converted_amount" jdbcType="DECIMAL" property="convertedAmount" />
+    <result column="converted_unit" jdbcType="VARCHAR" property="convertedUnit" />
+    <result column="fund_transfer_date" jdbcType="VARCHAR" property="fundTransferDate" />
+    <result column="trace_id" jdbcType="VARCHAR" property="traceId" />
+    <result column="account_tail" jdbcType="VARCHAR" property="accountTail" />
+    <result column="beginning_balance_amount" jdbcType="DECIMAL" property="beginningBalanceAmount" />
+    <result column="beginning_balance_unit" jdbcType="VARCHAR" property="beginningBalanceUnit" />
+    <result column="financial_event_group_start" jdbcType="VARCHAR" property="financialEventGroupStart" />
+    <result column="financial_event_group_end" jdbcType="VARCHAR" property="financialEventGroupEnd" />
+    <result column="is_pull_event" jdbcType="INTEGER" property="isPullEvent" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, shop_id, financial_event_group_id, processing_status, fund_transfer_status, original_amount, 
+    original_unit, converted_amount, converted_unit, fund_transfer_date, trace_id, account_tail, 
+    beginning_balance_amount, beginning_balance_unit, financial_event_group_start, financial_event_group_end, 
+    is_pull_event, create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_financial_event_group_0
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_financial_event_group_0
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dowsure.erp.model.pojo.TFinancialEventGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_financial_event_group_0 (shop_id, financial_event_group_id, processing_status, 
+      fund_transfer_status, original_amount, original_unit, 
+      converted_amount, converted_unit, fund_transfer_date, 
+      trace_id, account_tail, beginning_balance_amount, 
+      beginning_balance_unit, financial_event_group_start, 
+      financial_event_group_end, is_pull_event, create_time, 
+      update_time, is_deleted)
+    values (#{shopId,jdbcType=BIGINT}, #{financialEventGroupId,jdbcType=VARCHAR}, #{processingStatus,jdbcType=VARCHAR}, 
+      #{fundTransferStatus,jdbcType=VARCHAR}, #{originalAmount,jdbcType=DECIMAL}, #{originalUnit,jdbcType=VARCHAR}, 
+      #{convertedAmount,jdbcType=DECIMAL}, #{convertedUnit,jdbcType=VARCHAR}, #{fundTransferDate,jdbcType=VARCHAR}, 
+      #{traceId,jdbcType=VARCHAR}, #{accountTail,jdbcType=VARCHAR}, #{beginningBalanceAmount,jdbcType=DECIMAL}, 
+      #{beginningBalanceUnit,jdbcType=VARCHAR}, #{financialEventGroupStart,jdbcType=VARCHAR}, 
+      #{financialEventGroupEnd,jdbcType=VARCHAR}, #{isPullEvent,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dowsure.erp.model.pojo.TFinancialEventGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_financial_event_group_0
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="financialEventGroupId != null">
+        financial_event_group_id,
+      </if>
+      <if test="processingStatus != null">
+        processing_status,
+      </if>
+      <if test="fundTransferStatus != null">
+        fund_transfer_status,
+      </if>
+      <if test="originalAmount != null">
+        original_amount,
+      </if>
+      <if test="originalUnit != null">
+        original_unit,
+      </if>
+      <if test="convertedAmount != null">
+        converted_amount,
+      </if>
+      <if test="convertedUnit != null">
+        converted_unit,
+      </if>
+      <if test="fundTransferDate != null">
+        fund_transfer_date,
+      </if>
+      <if test="traceId != null">
+        trace_id,
+      </if>
+      <if test="accountTail != null">
+        account_tail,
+      </if>
+      <if test="beginningBalanceAmount != null">
+        beginning_balance_amount,
+      </if>
+      <if test="beginningBalanceUnit != null">
+        beginning_balance_unit,
+      </if>
+      <if test="financialEventGroupStart != null">
+        financial_event_group_start,
+      </if>
+      <if test="financialEventGroupEnd != null">
+        financial_event_group_end,
+      </if>
+      <if test="isPullEvent != null">
+        is_pull_event,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shopId != null">
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="financialEventGroupId != null">
+        #{financialEventGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="processingStatus != null">
+        #{processingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fundTransferStatus != null">
+        #{fundTransferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="originalAmount != null">
+        #{originalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="originalUnit != null">
+        #{originalUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="convertedAmount != null">
+        #{convertedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="convertedUnit != null">
+        #{convertedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="fundTransferDate != null">
+        #{fundTransferDate,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTail != null">
+        #{accountTail,jdbcType=VARCHAR},
+      </if>
+      <if test="beginningBalanceAmount != null">
+        #{beginningBalanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="beginningBalanceUnit != null">
+        #{beginningBalanceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="financialEventGroupStart != null">
+        #{financialEventGroupStart,jdbcType=VARCHAR},
+      </if>
+      <if test="financialEventGroupEnd != null">
+        #{financialEventGroupEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isPullEvent != null">
+        #{isPullEvent,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dowsure.erp.model.pojo.TFinancialEventGroup">
+    <!--@mbg.generated-->
+    update t_financial_event_group_0
+    <set>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="financialEventGroupId != null">
+        financial_event_group_id = #{financialEventGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="processingStatus != null">
+        processing_status = #{processingStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="fundTransferStatus != null">
+        fund_transfer_status = #{fundTransferStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="originalAmount != null">
+        original_amount = #{originalAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="originalUnit != null">
+        original_unit = #{originalUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="convertedAmount != null">
+        converted_amount = #{convertedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="convertedUnit != null">
+        converted_unit = #{convertedUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="fundTransferDate != null">
+        fund_transfer_date = #{fundTransferDate,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        trace_id = #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="accountTail != null">
+        account_tail = #{accountTail,jdbcType=VARCHAR},
+      </if>
+      <if test="beginningBalanceAmount != null">
+        beginning_balance_amount = #{beginningBalanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="beginningBalanceUnit != null">
+        beginning_balance_unit = #{beginningBalanceUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="financialEventGroupStart != null">
+        financial_event_group_start = #{financialEventGroupStart,jdbcType=VARCHAR},
+      </if>
+      <if test="financialEventGroupEnd != null">
+        financial_event_group_end = #{financialEventGroupEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isPullEvent != null">
+        is_pull_event = #{isPullEvent,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dowsure.erp.model.pojo.TFinancialEventGroup">
+    <!--@mbg.generated-->
+    update t_financial_event_group_0
+    set shop_id = #{shopId,jdbcType=BIGINT},
+      financial_event_group_id = #{financialEventGroupId,jdbcType=VARCHAR},
+      processing_status = #{processingStatus,jdbcType=VARCHAR},
+      fund_transfer_status = #{fundTransferStatus,jdbcType=VARCHAR},
+      original_amount = #{originalAmount,jdbcType=DECIMAL},
+      original_unit = #{originalUnit,jdbcType=VARCHAR},
+      converted_amount = #{convertedAmount,jdbcType=DECIMAL},
+      converted_unit = #{convertedUnit,jdbcType=VARCHAR},
+      fund_transfer_date = #{fundTransferDate,jdbcType=VARCHAR},
+      trace_id = #{traceId,jdbcType=VARCHAR},
+      account_tail = #{accountTail,jdbcType=VARCHAR},
+      beginning_balance_amount = #{beginningBalanceAmount,jdbcType=DECIMAL},
+      beginning_balance_unit = #{beginningBalanceUnit,jdbcType=VARCHAR},
+      financial_event_group_start = #{financialEventGroupStart,jdbcType=VARCHAR},
+      financial_event_group_end = #{financialEventGroupEnd,jdbcType=VARCHAR},
+      is_pull_event = #{isPullEvent,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dowsure.erp.model.dao.baseSource.TAuthShopMapper">
+  <resultMap id="BaseResultMap" type="com.dowsure.erp.model.pojo.TAuthShop">
+    <!--@mbg.generated-->
+    <!--@Table t_auth_shop-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="belong_platform" jdbcType="VARCHAR" property="belongPlatform" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="seller_id" jdbcType="VARCHAR" property="sellerId" />
+    <result column="marketplace_id" jdbcType="VARCHAR" property="marketplaceId" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, belong_platform, shop_name, seller_id, marketplace_id, region, create_time, 
+    update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_auth_shop
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from t_auth_shop
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dowsure.erp.model.pojo.TAuthShop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_auth_shop (user_id, belong_platform, shop_name, 
+      seller_id, marketplace_id, region, 
+      create_time, update_time, is_deleted
+      )
+    values (#{userId,jdbcType=BIGINT}, #{belongPlatform,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=VARCHAR}, #{marketplaceId,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dowsure.erp.model.pojo.TAuthShop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_auth_shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="belongPlatform != null">
+        belong_platform,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="sellerId != null">
+        seller_id,
+      </if>
+      <if test="marketplaceId != null">
+        marketplace_id,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="belongPlatform != null">
+        #{belongPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null">
+        #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="marketplaceId != null">
+        #{marketplaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dowsure.erp.model.pojo.TAuthShop">
+    <!--@mbg.generated-->
+    update t_auth_shop
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="belongPlatform != null">
+        belong_platform = #{belongPlatform,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerId != null">
+        seller_id = #{sellerId,jdbcType=VARCHAR},
+      </if>
+      <if test="marketplaceId != null">
+        marketplace_id = #{marketplaceId,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dowsure.erp.model.pojo.TAuthShop">
+    <!--@mbg.generated-->
+    update t_auth_shop
+    set user_id = #{userId,jdbcType=BIGINT},
+      belong_platform = #{belongPlatform,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
+      marketplace_id = #{marketplaceId,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
