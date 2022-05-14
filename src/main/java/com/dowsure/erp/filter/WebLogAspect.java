@@ -40,6 +40,9 @@ public class WebLogAspect {
 
 
 
+
+
+
         log.info("URL : " + request.getRequestURL().toString());
         log.info("HTTP_METHOD :" + request.getMethod());
         log.info("IP : " + request.getRemoteAddr());
