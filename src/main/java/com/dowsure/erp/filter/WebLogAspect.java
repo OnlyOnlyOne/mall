@@ -31,17 +31,15 @@ public class WebLogAspect {
 
     }
 
+
+
+
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) {
         //收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder
                 .getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-
-
-
-
-
 
         log.info("URL : " + request.getRequestURL().toString());
         log.info("HTTP_METHOD :" + request.getMethod());
